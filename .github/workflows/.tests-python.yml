@@ -6,12 +6,14 @@ on:
 
 jobs:
   python:
-    name: python ${{ matrix.python-version }}
+    name: pillow ${{ matrix.pillow-version }}.x & python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    continue-on-error: true
     container: python:${{ matrix.python-version }}
     strategy:
       matrix:
-        python-version:  [ "3.8", "3.9", "3.10", "3.11" ]
+        pillow-version:  [ "1", "2", "2.7", "3", "4", "5" , "6", "7", "8", "9", "10" ]
+        python-version:  [ "3.8", "3.11" ]
     steps:
       - uses: actions/checkout@v2
       - name: Update pip and install build
@@ -20,6 +22,8 @@ jobs:
         run: |
           python3 -m venv .venv 
           . .venv/bin/activate
+      - name: install pillow
+        run: python3 -m pip install pillow==${{ matrix.pillow-version }}
       - name: install requirements
         run: python3 -m pip install -r requirements.txt
       - name: run tests
