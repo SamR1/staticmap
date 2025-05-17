@@ -2,12 +2,18 @@ include Makefile.config
 -include Makefile.custom.config
 .SILENT:
 
-clean-all:
+clean:
+	rm -fr .mypy_cache
+	rm -fr .ruff_cache
+
+clean-all: clean
 	rm -fr $(VENV)
 	rm -fr .eggs
 	rm -fr *.egg-info
 	rm -rf dist/
 	rm -rf build/
+
+checks: lint type-check tests
 
 format:
 	$(RUFF) format staticmap
@@ -27,3 +33,7 @@ lint:
 
 tests:
 	$(PYTHON) -m unittest
+
+type-check:
+	echo 'Running mypy...'
+	$(MYPY) staticmap $(MYPY_ARGS)
