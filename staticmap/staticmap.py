@@ -1,4 +1,5 @@
 import itertools
+import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from io import BytesIO
@@ -7,7 +8,17 @@ from math import atan, ceil, cos, floor, log, pi, sinh, sqrt, tan
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 import requests
+from cachecontrol import CacheControl
 from PIL import Image, ImageDraw
+
+try:
+    from cachecontrol.caches.file_cache import FileCache
+
+    cache: Optional[FileCache] = FileCache(
+        os.getenv("STATICMAP_CACHE_DIR", ".staticmap_cache")
+    )
+except ImportError:
+    cache = None
 
 logger = getLogger(__name__)
 
@@ -99,7 +110,6 @@ class IconMarker:
 
 
 class Polygon:
-
     def __init__(
         self,
         coords: Sequence[Tuple[float, float]],
@@ -492,7 +502,9 @@ class StaticMap:
         returns the status code and content (in bytes) of the requested
         tile url
         """
-        res = requests.get(url, **kwargs)  # noqa: S113 (timeout is provided)
+        session = requests.session()
+        cached_session = CacheControl(session, cache=cache)
+        res = cached_session.get(url, **kwargs)
         return res.status_code, res.content
 
     def _draw_features(self, image: "Image.Image") -> None:
