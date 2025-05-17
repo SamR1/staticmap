@@ -26,7 +26,7 @@ install:
 	$(POETRY) install --only main
 
 install-dev:
-	$(POETRY) install
+	$(POETRY) install --all-extras
 
 lint:
 	$(RUFF) check staticmap

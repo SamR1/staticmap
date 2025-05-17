@@ -1,4 +1,5 @@
 import itertools
+import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from io import BytesIO
@@ -9,6 +10,15 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 import requests
 from cachecontrol import CacheControl
 from PIL import Image, ImageDraw
+
+try:
+    from cachecontrol.caches.file_cache import FileCache
+
+    cache: Optional[FileCache] = FileCache(
+        os.getenv("STATICMAP_CACHE_DIR", ".staticmap_cache")
+    )
+except ImportError:
+    cache = None
 
 logger = getLogger(__name__)
 
@@ -493,7 +503,7 @@ class StaticMap:
         tile url
         """
         session = requests.session()
-        cached_session = CacheControl(session)
+        cached_session = CacheControl(session, cache=cache)
         res = cached_session.get(url, **kwargs)
         return res.status_code, res.content
 

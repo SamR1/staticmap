@@ -19,16 +19,21 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-cachecontrol="^0.14.3"
-pillow="^11.2.1"
-requests="^2.32.3"
+requires-python = ">= 3.9"
 
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.15.0"
-ruff = "^0.11.10"
-types-requests = "^2.32.0.20250515"
+dependencies = [
+    "cachecontrol>=0.14.3",
+    "pillow>=11.2.1",
+    "requests>=2.32.3"
+]
+
+[project.optional-dependencies]
+filecache = ["filelock >= 3.8.0"]
+dev = [
+    "mypy>=1.15.0",
+    "ruff>=0.11.10",
+    "types-requests"
+]
 
 [tool.ruff]
 line-length = 79
