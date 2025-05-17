@@ -6,6 +6,7 @@ on:
 
 jobs:
   tests:
+    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.fork }}
     name: python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     container: python:${{ matrix.python-version }}
