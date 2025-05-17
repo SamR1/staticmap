@@ -1,1 +1,3 @@
-from .staticmap import StaticMap, CircleMarker, IconMarker, Line, Polygon
+from .staticmap import CircleMarker, IconMarker, Line, Polygon, StaticMap
+
+__all__ = ["CircleMarker", "IconMarker", "Line", "Polygon", "StaticMap"]
