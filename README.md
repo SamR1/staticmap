@@ -34,7 +34,7 @@ width               | width of the image in pixels
 height              | height of the image in pixels
 padding_x           | (optional) minimum distance in pixel between map features (lines, markers) and map border
 padding_y           | (optional) minimum distance in pixel between map features (lines, markers) and map border
-url_template        | (optional) the tile server URL for the map base layer, e.g. <code>http://a.tile.osm.org/{z}/{x}/{y}.png</code>
+url_template        | (optional) the tile server URL for the map base layer, e.g. <code>https://tile.openstreetmap.org/{z}/{x}/{y}.png</code>
 tile_size           | (optional) tile size in pixel, usually 256
 
 #### Add a line:
@@ -84,7 +84,7 @@ simplify      | whether to simplify coordinates, looks less shaky, default is tr
 ```python
 from staticmap import StaticMap, CircleMarker
 
-m = StaticMap(200, 200, url_template='http://a.tile.osm.org/{z}/{x}/{y}.png')
+m = StaticMap(200, 200, url_template='https://tile.openstreetmap.org/{z}/{x}/{y}.png')
 
 marker_outline = CircleMarker((10, 47), 'white', 18)
 marker = CircleMarker((10, 47), '#0036FF', 12)

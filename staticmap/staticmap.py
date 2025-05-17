@@ -198,7 +198,7 @@ class StaticMap:
         height: int,
         padding_x: int = 0,
         padding_y: int = 0,
-        url_template: str = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        url_template: str = "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
         tile_size: int = 256,
         tile_request_timeout: Optional[float] = None,
         headers: Optional[Dict] = None,
