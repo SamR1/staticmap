@@ -557,5 +557,5 @@ filecache = ["filelock"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">= 3.9"
-content-hash = "1222486c72be5dd211c9eae6438561faec8772d0d1c36b787856d5eb29fe1ab5"
+python-versions = ">=3.9"
+content-hash = "bab39529664dc819d2650b567842b5c24741efbd78c91373fcbf470abd746da6"
