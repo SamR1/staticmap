@@ -13,14 +13,14 @@ jobs:
       matrix:
         python-version:  [ "3.9", "3.10", "3.11", "3.12", "3.13" ]
     steps:
-      - uses: actions/checkout@v3
-      - name: Upgrade pip
-        run: python3 -m pip install --upgrade pip
-      - name: Create and source virtual environment
+      - uses: actions/checkout@v4
+
+      - name: Install Poetry and Dependencies
         run: |
-          python3 -m venv .venv 
-          . .venv/bin/activate
-      - name: Install requirements
-        run: python3 -m pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install --quiet poetry
+          poetry config virtualenvs.create false
+          poetry install --no-interaction --quiet
+
       - name: Run unit tests
         run: python -m unittest

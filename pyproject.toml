@@ -1,0 +1,32 @@
+[project]
+name = "staticmap"
+version = "0.5.7"
+description = "A small, python-based library for creating map images with lines and markers."
+authors = [
+    {name = "Christoph Lingg",email = "christoph@komoot.de"}
+]
+license = {text = "Apache Software License"}
+readme = "README.md"
+keywords = ["static", "map", "image", "osm"]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+requires-python = ">=3.9"
+
+dependencies = [
+    "pillow (>=11.2.1,<12.0.0)",
+    "requests (>=2.32.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
