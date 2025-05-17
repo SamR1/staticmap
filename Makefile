@@ -9,11 +9,21 @@ clean-all:
 	rm -rf dist/
 	rm -rf build/
 
+format:
+	$(RUFF) format staticmap
+
+fix:
+	$(RUFF) format staticmap
+	$(RUFF) check --fix staticmap
+
 install:
 	$(POETRY) install --only main
 
 install-dev:
 	$(POETRY) install
+
+lint:
+	$(RUFF) check staticmap
 
 tests:
 	$(PYTHON) -m unittest
