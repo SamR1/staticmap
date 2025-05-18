@@ -61,3 +61,6 @@ docs/_build/
 target/
 
 
+.mypy_cache/
+
+.staticmap_cache/
