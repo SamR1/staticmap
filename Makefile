@@ -5,6 +5,7 @@ include Makefile.config
 clean:
 	rm -fr .mypy_cache
 	rm -fr .ruff_cache
+	rm -fr .staticmap_cache
 
 clean-all: clean
 	rm -fr $(VENV)
@@ -16,11 +17,11 @@ clean-all: clean
 checks: lint type-check tests
 
 format:
-	$(RUFF) format staticmap
+	$(RUFF) format staticmap3
 
 fix:
-	$(RUFF) format staticmap
-	$(RUFF) check --fix staticmap
+	$(RUFF) format staticmap3
+	$(RUFF) check --fix staticmap3
 
 install:
 	$(POETRY) install --only main
@@ -29,11 +30,11 @@ install-dev:
 	$(POETRY) install --all-extras
 
 lint:
-	$(RUFF) check staticmap
+	$(RUFF) check staticmap3
 
 tests:
 	$(PYTHON) -m unittest
 
 type-check:
 	echo 'Running mypy...'
-	$(MYPY) staticmap $(MYPY_ARGS)
+	$(MYPY) staticmap3 $(MYPY_ARGS)

@@ -1,9 +1,12 @@
 [project]
-name = "staticmap"
-version = "0.5.7"
-description = "A small, python-based library for creating map images with lines and markers."
+name = "staticmap3"
+version = "0.1.0"
+description = "Fork of staticmap, a small, python-based library for creating map images with lines and markers."
 authors = [
-    {name = "Christoph Lingg",email = "christoph@komoot.de"}
+    {name = "Christoph Lingg", email = "christoph@komoot.de"}
+]
+maintainers = [
+    {name = "SamR1"}
 ]
 license = {text = "Apache Software License"}
 readme = "README.md"
