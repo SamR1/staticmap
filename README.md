@@ -28,6 +28,13 @@ To install Static Map 3:
 pip install git+https://github.com/SamR1/staticmap.git
 ```
 
+To use [`Filecache`](https://cachecontrol.readthedocs.io/en/latest/storage.html#filecache) as storage backend for cache:
+
+```bash
+pip install git+https://github.com/SamR1/staticmap.git@main#egg=staticmap3[filecache]
+```
+The default directory for cache is `.staticmap_cache`. It can be changed by exporting the environment variable `STATICMAP_CACHE_DIR`.
+
 ## Usage
 #### Create a new map instance:
 
