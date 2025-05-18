@@ -62,3 +62,5 @@ target/
 
 
 .mypy_cache/
+
+.staticmap_cache/

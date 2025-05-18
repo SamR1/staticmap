@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from staticmap.staticmap import _lat_to_y, _lon_to_x, _x_to_lon, _y_to_lat
+from staticmap3.staticmap import _lat_to_y, _lon_to_x, _x_to_lon, _y_to_lat
 
 
 class LonLatConversionTest(TestCase):

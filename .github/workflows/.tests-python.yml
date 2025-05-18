@@ -25,11 +25,11 @@ jobs:
 
       - name: Lint
         if: matrix.python-version == '3.13'
-        run: ruff check staticmap
+        run: ruff check staticmap3
 
       - name: Type check
         if: matrix.python-version == '3.13'
-        run: mypy staticmap
+        run: mypy staticmap3
 
       - name: Run unit tests
         run: python -m unittest
