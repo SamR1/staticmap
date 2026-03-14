@@ -463,7 +463,7 @@ class StaticMap:
                 for tile in tiles
             ]
 
-            for tile, future in zip(tiles, futures):
+            for tile, future in zip(tiles, futures, strict=True):
                 x, y, url = tile
 
                 try:
