@@ -463,13 +463,15 @@ class StaticMap:
                 for tile in tiles
             ]
 
-            for tile, future in zip(tiles, futures):
+            for tile, future in zip(tiles, futures, strict=True):
                 x, y, url = tile
 
                 try:
                     response_status_code, response_content = future.result()
                 except Exception:
-                    response_status_code, response_content = None, None
+                    logger.exception("request failed")
+                    failed_tiles.append(tile)
+                    continue
 
                 if response_status_code != 200:
                     logger.error(

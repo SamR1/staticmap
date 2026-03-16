@@ -1,6 +1,6 @@
 [project]
 name = "staticmap3"
-version = "0.1.0"
+version = "0.2.0"
 description = "Fork of staticmap, a small, python-based library for creating map images with lines and markers."
 authors = [
     {name = "Christoph Lingg", email = "christoph@komoot.de"}
@@ -15,26 +15,26 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 
 dependencies = [
-    "cachecontrol>=0.14.3",
-    "pillow>=11.2.1",
-    "requests>=2.32.3"
+    "cachecontrol",
+    "pillow",
+    "requests"
 ]
 
 [project.optional-dependencies]
-filecache = ["filelock >= 3.8.0"]
+filecache = ["filelock"]
 dev = [
-    "mypy>=1.15.0",
-    "ruff>=0.11.10",
+    "mypy>=1.19.1",
+    "ruff>=0.15.5",
     "types-requests"
 ]
 
