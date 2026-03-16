@@ -1,5 +1,20 @@
 # Changelog
 
+## Version 0.2.0 - 2026-03-16
+
+### Added
+
+- [#5](https://github.com/SamR1/staticmap/pull/5) Add support for Python 3.14
+
+### Changed
+
+- [#6](https://github.com/SamR1/staticmap/pull/6) Improve error logging when downloading tiles
+
+### Removed
+
+- [#4](https://github.com/SamR1/staticmap/pull/4) Drop support for Python 3.9
+
+
 ## Version 0.1.0 - 2025-05-18
 
 Static Map 3 is a fork of [Static Map](https://github.com/komoot/staticmap) (v0.5.7).

@@ -1,6 +1,6 @@
 [project]
 name = "staticmap3"
-version = "0.1.0"
+version = "0.2.0"
 description = "Fork of staticmap, a small, python-based library for creating map images with lines and markers."
 authors = [
     {name = "Christoph Lingg", email = "christoph@komoot.de"}
