@@ -469,7 +469,9 @@ class StaticMap:
                 try:
                     response_status_code, response_content = future.result()
                 except Exception:
-                    response_status_code, response_content = None, None
+                    logger.exception("request failed")
+                    failed_tiles.append(tile)
+                    continue
 
                 if response_status_code != 200:
                     logger.error(
